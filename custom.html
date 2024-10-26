@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,24 +15,23 @@
             overflow: hidden;
             position: relative;
         }
-
+        
         .slick-dots {
             bottom: -30px;
             left: 10px;
             text-align: left;
         }
-
+        
         .slick-dots li button:before {
             font-size: 10px;
             color: #ccc;
         }
-
+        
         .slick-dots li.slick-active button:before {
             color: #20481F;
-            font-size: 15px; 
-          
+            font-size: 15px;
         }
-
+        
         .slider-arrows {
             position: absolute;
             bottom: -10px;
@@ -39,9 +39,8 @@
             display: flex;
             gap: 10px;
         }
-
+        
         .arrow-button {
-           
             color: rgb(0, 0, 0);
             border: none;
             padding: 5px 10px;
@@ -50,30 +49,58 @@
         }
     </style>
 </head>
+
 <body>
     <!-- nav--------------------------- -->
-    <nav class="p-10 flex items-center text-black justify-between">
-        <button class="bg-[#AE232D] text-white border px-6 py-2 rounded">logo</button>
-        <div class="flex flex-grow justify-center space-x-8">
+    <nav class="p-5 flex items-center max-w-7xl mx-auto text-black justify-between relative">
+        <!-- Logo -->
+        <button class="bg-[#AE232D] text-white border px-6 py-2 rounded">
+            logo
+        </button>
+
+        <!-- Desktop Links - Hidden on mobile, shown on larger screens -->
+        <div id="nav-links" class="flex-grow justify-center hidden md:flex space-x-8">
             <a href="index.html" class="text-gray-400">Homepage</a>
             <a href="gallery.html" class="text-gray-400">Gallery</a>
             <a href="about.html" class="text-gray-400">About Us</a>
-            <a href="custom.html" class="text-black font-semibold">Custom Page</a>
+            <a href="custom.html" class="  text-black font-semibold">Custom Page</a>
         </div>
-        <div class="">
-            <button class="bg-[#AE232D] text-white border w-full px-6 py-2 rounded">Cart</button>
+
+        <!-- Cart Button for Desktop -->
+        <button class="bg-[#AE232D] text-white border  px-6 py-2 rounded hidden md:block">
+            Cart
+        </button>
+
+        <!-- Mobile Menu Toggle Icon -->
+        <button id="nav-toggle" class="md:hidden focus:outline-none">
+            <span class="block w-8 h-1 bg-black mb-1 transition-transform transform"></span>
+            <span class="block w-8 h-1 bg-black mb-1 transition-transform transform"></span>
+            <span class="block w-8 h-1 bg-black transition-transform transform"></span>
+        </button>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-10">
+            <div class="flex flex-col items-center space-y-4 py-10">
+                <a href="index.html" class="text-gray-400" onclick="closeMenu()">Homepage</a>
+                <a href="gallery.html" class="text-gray-400" onclick="closeMenu()">Gallery</a>
+                <a href="about.html" class="text-gray-400" onclick="closeMenu()">About Us</a>
+                <a href="custom.html" class="text-black font-semibold" onclick="closeMenu()">Custom Page</a>
+                <button class="bg-[#AE232D] text-white border px-6 py-2 rounded w-3/4" onclick="closeMenu()">
+                    Cart
+                </button>
+            </div>
         </div>
     </nav>
 
     <!-- second======================================= -->
-    <div class="max-w-7xl mx-auto">
-        <div class="flex items-center justify-center gap-5">
+    <div class="max-w-7xl mx-auto py-10 lg:py-20 px-5">
+        <div class="flex flex-col lg:flex-row items-center justify-center gap-5">
             <div class="flex-[.5]">
                 <img src="./src/assets/custom1.png" alt="" class="" />
             </div>
             <div class="flex-[.5] flex flex-col gap-4 items-center">
-                <p class="text-5xl font-semibold">Our Role in the<br />Community</p>
-                <p>
+                <p class="text-5xl font-semibold text-center  lg:text-start w-full ">Our Role in the<br />Community</p>
+                <p class="text-center lg:text-start">
                     At ABC Fitness Studio, we believe in the power of movement to transform both the body and mind. Our mission is to create a welcoming environment where individuals of all fitness levels can come together to improve their well-being.
                 </p>
             </div>
@@ -81,17 +108,17 @@
     </div>
 
     <!-- third------------------------------------------ -->
-    <div class="max-w-7xl py-5 mx-auto">
+    <div class="max-w-7xl py-5 mx-auto px-5">
         <div class="flex flex-col w-[70%] mx-auto gap-10">
             <div class="flex flex-col items-center gap-5 p-5 justify-center">
                 <p class="text-5xl text-center">Upcoming Events</p>
                 <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br />sed do eiusmod tempor incididunt ut labore et</p>
             </div>
-            <div class="flex text-[#20481F] items-center justify-center gap-5">
+            <div class="flex text-[#20481F] flex-col lg:flex-row items-center justify-center gap-5">
                 <div class="flex-[.3]"><img src="./src/assets/u1.png" alt="" /></div>
                 <div class="flex-[.7] text-2xl">Free Outdoor Yoga Class: Join us at the park<br />every Saturday for a free community yoga<br />session.</div>
             </div>
-            <div class="flex text-[#20481F] items-center justify-center gap-5">
+            <div class="flex text-[#20481F] flex-col lg:flex-row  items-center justify-center gap-5">
                 <div class="flex-[.3]"><img src="./src/assets/u2.png" alt="" /></div>
                 <div class="flex-[.7] text-2xl">Free Outdoor Yoga Class: Join us at the park<br />every Saturday for a free community yoga<br />session.</div>
             </div>
@@ -197,10 +224,9 @@
         </div>
     </div>
 
-    <!-- footer---------------- -->
-    <footer class="bg-[#AE232D] h-[50vh] pt-10">
+    <footer class="bg-[#AE232D] lg:h-[50vh] pt-10">
         <div class="text-white">
-            <div class="max-w-7xl grid grid-cols-6 gap-5 justify-between items-center mx-auto">
+            <div class="max-w-7xl grid grid-cols-1  md:grid-cols-6  px-5 gap-5 justify-between items-center mx-auto">
                 <div class="flex flex-col gap-2 col-span-2">
                     <p class="text-3xl font-bold">Logo</p>
                     <p>Our vision is to provide convenience and<br />help increase your fitness.</p>
@@ -242,7 +268,8 @@
                     </div>
                 </div>
             </div>
-            <div class="text-white my-10 max-w-7xl mx-auto border-t border-t-white/5">©2022 abcfitnessstudio. All rights reserved</div>
+            <div class="text-white  px-5 py-10 max-w-7xl mx-auto border-t border-t-white/5">©2022 abcfitnessstudio. All rights reserved
+            </div>
         </div>
     </footer>
 
@@ -250,44 +277,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $(".client-slider").slick({
-              
+
                 dots: true,
                 arrows: false,
                 slidesToShow: 3,
                 slidesToScroll: 1,
-                
-                responsive: [
-                    {
-                        breakpoint: 1200,
-                        settings: {
-                            slidesToShow: 3,
-                        }
-                    },
-                    {
-                        breakpoint: 992,
-                        settings: {
-                            slidesToShow: 2,
-                        }
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 1,
-                        }
+
+                responsive: [{
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3,
                     }
-                ]
+                }, {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                }, {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                    }
+                }]
             });
 
-            $("#prev").click(function () {
+            $("#prev").click(function() {
                 $(".client-slider").slick("slickPrev");
             });
 
-            $("#next").click(function () {
+            $("#next").click(function() {
                 $(".client-slider").slick("slickNext");
             });
         });
     </script>
+
+    <script>
+        // Toggle Mobile Menu
+        const navToggle = document.getElementById("nav-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        navToggle.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+
+        // Close Menu Function
+        function closeMenu() {
+            mobileMenu.classList.add("hidden");
+        }
+    </script>
 </body>
+
 </html>
